@@ -1,13 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "8KH/radSrCZN1DJVgg44klsAiF2EJW8BOT86rrN2JfBNC8DNoEhGsnhr69Ew1WiwYAENdJaL6AvIQaSTQ/zrYg==",
+  "dgSpecHash": "dsQuxQtRJJ9Pn6+2gAxA8Z0GLmt0FIvdUgIi674twalrT42BMCmP3P9xSnRps/hSI8gUFy3/rhEH2Z8xiz8Yhw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\ChristiaanRabie\\source\\repos\\Rabbit\\Rabbit\\Rabbit.csproj",
+  "projectFilePath": "C:\\GitHub\\team-nyx\\Rabbit\\Rabbit\\Rabbit.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\ChristiaanRabie\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
-    "C:\\Users\\ChristiaanRabie\\.nuget\\packages\\rabbitmq.client\\6.2.4\\rabbitmq.client.6.2.4.nupkg.sha512",
-    "C:\\Users\\ChristiaanRabie\\.nuget\\packages\\system.memory\\4.5.4\\system.memory.4.5.4.nupkg.sha512",
-    "C:\\Users\\ChristiaanRabie\\.nuget\\packages\\system.threading.channels\\4.7.1\\system.threading.channels.4.7.1.nupkg.sha512"
+    "C:\\Users\\AngusBethke\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
+    "C:\\Users\\AngusBethke\\.nuget\\packages\\rabbitmq.client\\6.2.4\\rabbitmq.client.6.2.4.nupkg.sha512",
+    "C:\\Users\\AngusBethke\\.nuget\\packages\\system.memory\\4.5.4\\system.memory.4.5.4.nupkg.sha512",
+    "C:\\Users\\AngusBethke\\.nuget\\packages\\system.threading.channels\\4.7.1\\system.threading.channels.4.7.1.nupkg.sha512"
   ],
   "logs": []
 }

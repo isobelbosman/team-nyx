@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ChristiaanRabie\\source\\repos\\RabbitConsumer\\RabbitConsumer\\RabbitConsumer.csproj": {}
+    "C:\\GitHub\\team-nyx\\RabbitConsumer\\RabbitConsumer\\RabbitConsumer.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ChristiaanRabie\\source\\repos\\RabbitConsumer\\RabbitConsumer\\RabbitConsumer.csproj": {
+    "C:\\GitHub\\team-nyx\\RabbitConsumer\\RabbitConsumer\\RabbitConsumer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ChristiaanRabie\\source\\repos\\RabbitConsumer\\RabbitConsumer\\RabbitConsumer.csproj",
+        "projectUniqueName": "C:\\GitHub\\team-nyx\\RabbitConsumer\\RabbitConsumer\\RabbitConsumer.csproj",
         "projectName": "RabbitConsumer",
-        "projectPath": "C:\\Users\\ChristiaanRabie\\source\\repos\\RabbitConsumer\\RabbitConsumer\\RabbitConsumer.csproj",
-        "packagesPath": "C:\\Users\\ChristiaanRabie\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ChristiaanRabie\\source\\repos\\RabbitConsumer\\RabbitConsumer\\obj\\",
+        "projectPath": "C:\\GitHub\\team-nyx\\RabbitConsumer\\RabbitConsumer\\RabbitConsumer.csproj",
+        "packagesPath": "C:\\Users\\AngusBethke\\.nuget\\packages\\",
+        "outputPath": "C:\\GitHub\\team-nyx\\RabbitConsumer\\RabbitConsumer\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\ChristiaanRabie\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\AngusBethke\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -68,7 +64,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.200\\RuntimeIdentifierGraph.json"
         }
       }
     }

@@ -1,7 +1,11 @@
 ﻿using Newtonsoft.Json;
 using RabbitMQ.Client;
 using System;
+using System.Collections.Generic;
+using System.Diagnostics;
 using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace Rabbit
 {
@@ -21,15 +25,41 @@ namespace Rabbit
                 autoDelete: false,
                 arguments: null);
 
-            for (int i = 0; i < 10000000; i++)
-            {
-                var message = new { Name = "Producer", Message = $"Message number {i}, Time: {DateTime.Now.ToLongTimeString()}" };
-                var body = Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(message));
+            var stopWatch = new Stopwatch();
+            stopWatch.Start();
 
-                channel.BasicPublish("", "demo-queue", null, body);
+            Console.WriteLine("Starting message send...");
+
+            var senderThread = new SenderThread(channel);
+            var cancellationToken = new CancellationToken();
+            var taskList = new List<Task>();
+
+            var threadNumber = 0;
+            for (int i = 1; i <= 16; i++)
+            {
+                var currentThreadNumber = threadNumber + i;
+                taskList.Add(Task.Run(() => senderThread.RunSenderThread(cancellationToken, currentThreadNumber, 1000)));
             }
 
+            var allTasksCompleted = false;
+            while (!allTasksCompleted)
+            {
+                allTasksCompleted = true;
+                foreach (var task in taskList)
+                {
+                    if (!task.IsCompleted)
+                    {
+                        allTasksCompleted = false;
+                    }
+                }
+            }
 
+            stopWatch.Stop();
+
+            var callsPerSecond = Math.Floor((senderThread.Success + senderThread.Failure) / Math.Ceiling((decimal)(stopWatch.ElapsedMilliseconds / 1000)));
+
+            Console.WriteLine($"Successful Calls: {senderThread.Success} \nFailed Calls: {senderThread.Failure} \nCalls per second (floor): {callsPerSecond}");
+            Console.WriteLine($"Message send complete in {stopWatch.ElapsedMilliseconds} milliseconds...");
         }
     }
 }

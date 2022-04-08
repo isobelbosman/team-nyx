@@ -7,6 +7,8 @@ stopWatch.Start();
 
 Console.WriteLine("Starting message send...");
 
+// Rabbit MQ endpoint: https://localhost:7216;
+
 var senderThread = new SenderThread("https://localhost:7201/DataReceiver");
 var cancellationToken = new CancellationToken();
 var taskList = new List<Task>();
