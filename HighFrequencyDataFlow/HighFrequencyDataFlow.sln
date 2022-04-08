@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32210.238
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HighFrequencyDataFlow", "HighFrequencyDataFlow\HighFrequencyDataFlow.csproj", "{DEE480EA-F7F7-46B3-ACCD-9E6728068D13}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DEE480EA-F7F7-46B3-ACCD-9E6728068D13}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DEE480EA-F7F7-46B3-ACCD-9E6728068D13}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DEE480EA-F7F7-46B3-ACCD-9E6728068D13}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DEE480EA-F7F7-46B3-ACCD-9E6728068D13}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5FFE5F47-A83A-452C-8571-A84E9AFC78FD}
+	EndGlobalSection
+EndGlobal
