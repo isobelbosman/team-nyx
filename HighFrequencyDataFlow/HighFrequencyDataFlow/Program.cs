@@ -33,4 +33,5 @@ while (!allTasksCompleted)
 
 stopWatch.Stop();
 
+Console.WriteLine($"Successful Calls: {senderThread.Success}\nFailed Calls: {senderThread.Failure}");
 Console.WriteLine($"Message send complete in {stopWatch.ElapsedMilliseconds} milliseconds...");
