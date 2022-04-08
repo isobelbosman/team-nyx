@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "YhH3nsq7x2UWLXgzWpgV5f1qj0MQKyE6MecVdrmjK9k=",
+  "Source": "HighFrequencyDataFlowReceiver",
+  "BasePath": "_content/HighFrequencyDataFlowReceiver",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
