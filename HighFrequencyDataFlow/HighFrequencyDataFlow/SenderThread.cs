@@ -10,16 +10,20 @@ namespace HighFrequencyDataFlow
 {
     public class SenderThread
     {
-        private readonly string _url = "https://localhost:7201/DataReceiver";
+        private readonly string _url;
         public int Success { get; set; } = 0;
         public int Failure { get; set; } = 0;
 
-        public async Task RunSenderThread(CancellationToken token, int threadNumber)
+        public SenderThread(string url)
+        {
+            _url = url;
+        }
+
+        public async Task RunSenderThread(CancellationToken token, int threadNumber, int control)
         {
             var httpClient = new HttpClient();
             var complete = false;
-            var control = 1000;
-            var dayCareData = await LoadDayCareData(control, threadNumber);
+            var dayCareData = await LoadDayCareData();
             var random = new Random();
 
             // Safe thread management
@@ -27,9 +31,15 @@ namespace HighFrequencyDataFlow
             {
                 Console.WriteLine($"Thread {threadNumber}: Running...");
 
-                for (int i = 0; i <= control; i++)
+                var startIndex = control * (threadNumber - 1);
+                for (int i = 0; i < control; i++)
                 {
-                    var payload = new KittyDayCare(dayCareData.CatNames[i], dayCareData.CatActivities[random.Next(0, (dayCareData.CatActivities.Count - 1))], DateTime.Now);
+                    if (startIndex > (dayCareData.CatNames.Count - 1))
+                    {
+                        startIndex = 0;
+                    }
+
+                    var payload = new KittyDayCare(dayCareData.CatNames[startIndex], dayCareData.CatActivities[random.Next(0, (dayCareData.CatActivities.Count - 1))], DateTime.Now);
                     var byteContent = PreparePayload(payload, threadNumber);
 
                     var response = await httpClient.PostAsync(_url, byteContent);
@@ -44,6 +54,8 @@ namespace HighFrequencyDataFlow
                         Console.WriteLine($"Thread {threadNumber}: Post Failure, Response: {response.StatusCode} - {response.ReasonPhrase}...");
                         Failure++;
                     }
+
+                    startIndex++;
                 }
                 complete = true;
             }
@@ -63,23 +75,15 @@ namespace HighFrequencyDataFlow
             return byteContent;
         }
 
-        private async Task<DayCareDataLoad> LoadDayCareData(int control, int threadNumber)
+        private async Task<DayCareDataLoad> LoadDayCareData()
         {
             var baseFilePath = @$"{Directory.GetCurrentDirectory()}\Data";
             var catNames = (await File.ReadAllLinesAsync(@$"{baseFilePath}\CatNames.txt")).ToList();
             var dayCareActivities = (await File.ReadAllLinesAsync(@$"{Directory.GetCurrentDirectory()}\Data\Daycare_Activities.txt")).ToList();
 
-            var startIndex = (threadNumber - 1) * control;
-
-            if ((startIndex >= catNames.Count) || ((startIndex + control) >= catNames.Count))
-            {
-                startIndex = 0;
-            }
-
-            var currentCatNames = catNames.GetRange(startIndex, control);
             var data = new DayCareDataLoad()
             {
-                CatNames = currentCatNames,
+                CatNames = catNames,
                 CatActivities = dayCareActivities
             };
 
