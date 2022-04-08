@@ -26,19 +26,30 @@ namespace Rabbit
                 arguments: null);
 
             var stopWatch = new Stopwatch();
-            stopWatch.Start();
 
-            Console.WriteLine("Starting message send...");
+            // Number of records to run
+            var count = 1000;
+            var runUsingThreads = false;
 
             var senderThread = new SenderThread(channel);
             var cancellationToken = new CancellationToken();
             var taskList = new List<Task>();
 
-            var threadNumber = 0;
-            for (int i = 1; i <= 16; i++)
+            Console.WriteLine("Starting message send...");
+            stopWatch.Start();
+
+            if (runUsingThreads)
             {
-                var currentThreadNumber = threadNumber + i;
-                taskList.Add(Task.Run(() => senderThread.RunSenderThread(cancellationToken, currentThreadNumber, 1000)));
+                var threadNumber = 0;
+                for (int i = 1; i <= 16; i++)
+                {
+                    var currentThreadNumber = threadNumber + i;
+                    taskList.Add(Task.Run(() => senderThread.RunSenderThread(cancellationToken, currentThreadNumber, count)));
+                }
+            }
+            else
+            {
+                taskList.Add(Task.Run(() => senderThread.RunSender(cancellationToken, count)));
             }
 
             var allTasksCompleted = false;
