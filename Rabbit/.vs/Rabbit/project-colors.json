@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "4c72af7a-b2bb-4dbc-9bab-2597f905488a": {
+      "ProjectGuid": "4c72af7a-b2bb-4dbc-9bab-2597f905488a",
+      "DisplayName": "Rabbit",
+      "ColorIndex": 0
+    }
+  },
+  "NextColorIndex": 1
+}
