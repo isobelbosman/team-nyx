@@ -22,7 +22,7 @@ namespace HighFrequencyDataFlowReceiver.Controllers
         }
 
         [HttpPost(Name = "Grab")]
-        public IActionResult Grab([FromBody] SomeDataObject someDataObject)
+        public IActionResult Grab([FromBody] KittyDayCare someDataObject)
         {
             Console.WriteLine($"{JsonConvert.SerializeObject(someDataObject)}");
             return Ok();
