@@ -25,7 +25,7 @@ namespace Rabbit
         public async Task RunSender(CancellationToken token, int control)
         {
             var complete = false;
-            var dayCareData = await LoadDayCareData();
+            var dayCareData = await LoadDayCareData(control);
             var random = new Random();
 
             // Safe thread management
